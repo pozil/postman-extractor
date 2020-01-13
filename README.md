@@ -7,7 +7,7 @@ Command line utility that extracts/compacts resources from Postman export files 
 [![Downloads/week](https://img.shields.io/npm/dw/postman-extractor.svg)](https://npmjs.org/package/postman-extractor)
 [![License](https://img.shields.io/npm/l/postman-extractor.svg)](https://github.com/pozil/postman-extractor/blob/master/package.json)
 
-This utility lets you turn Postman export JSON files into a set of files and folders likes this:
+Run `pmx import -f myResources.postman_export.json` to split a Postman export JSON file into a set of files and folders likes this:
 
 ```
 src
@@ -39,17 +39,21 @@ src
     │   my_presets1.json
 ```
 
+Then, run `pmx export -o myUpdatedResources.postman_export.json` to aggregate the source files and folders into a single Postman export JSON file.
+
 ⚠️ **Warning:** Make sure to remove all credentials from your Postmal resources when versioning them.
 
 <!-- toc -->
-* [Postman Extractor (pmx)](#postman-extractor-pmx)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+-   [Postman Extractor (pmx)](#postman-extractor-pmx)
+-   [Usage](#usage)
+-   [Commands](#commands)
+    <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g postman-extractor
 $ pmx COMMAND
@@ -61,14 +65,16 @@ USAGE
   $ pmx COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`pmx export`](#pmx-export)
-* [`pmx help [COMMAND]`](#pmx-help-command)
-* [`pmx import`](#pmx-import)
+
+-   [`pmx export`](#pmx-export)
+-   [`pmx help [COMMAND]`](#pmx-help-command)
+-   [`pmx import`](#pmx-import)
 
 ## `pmx export`
 
@@ -116,4 +122,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/import.js](https://github.com/pozil/postman-extractor/blob/v1.0.1/src/commands/import.js)_
+
 <!-- commandsstop -->
