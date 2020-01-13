@@ -55,7 +55,7 @@ $ npm install -g postman-extractor
 $ pmx COMMAND
 running command...
 $ pmx (-v|--version|version)
-postman-extractor/1.1.0 darwin-x64 node-v10.16.3
+postman-extractor/1.1.1 darwin-x64 node-v10.16.3
 $ pmx --help [COMMAND]
 USAGE
   $ pmx COMMAND
@@ -83,7 +83,7 @@ OPTIONS
   -o, --outputFile=outputFile            (required) Output file
 ```
 
-_See code: [src/commands/export.js](https://github.com/pozil/postman-extractor/blob/v1.1.0/src/commands/export.js)_
+_See code: [src/commands/export.js](https://github.com/pozil/postman-extractor/blob/v1.1.1/src/commands/export.js)_
 
 ## `pmx help [COMMAND]`
 
@@ -115,5 +115,5 @@ OPTIONS
   -o, --outputDir=outputDir      (required) [default: src] Output directory
 ```
 
-_See code: [src/commands/import.js](https://github.com/pozil/postman-extractor/blob/v1.1.0/src/commands/import.js)_
+_See code: [src/commands/import.js](https://github.com/pozil/postman-extractor/blob/v1.1.1/src/commands/import.js)_
 <!-- commandsstop -->
