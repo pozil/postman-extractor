@@ -1,5 +1,4 @@
 const { Command, flags } = require('@oclif/command');
-// eslint-disable-next-line node/no-extraneous-require
 const { cli } = require('cli-ux');
 const fs = require('fs');
 
