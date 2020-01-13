@@ -1,0 +1,55 @@
+{
+    "version": "1.0.0",
+    "commands": {
+        "export": {
+            "id": "export",
+            "description": "Assembles ressource files in a single Postman export file",
+            "pluginName": "postman-extractor",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "sourceDirectory": {
+                    "name": "sourceDirectory",
+                    "type": "option",
+                    "char": "d",
+                    "description": "Source directory",
+                    "required": true,
+                    "default": "src"
+                },
+                "outputFile": {
+                    "name": "outputFile",
+                    "type": "option",
+                    "char": "o",
+                    "description": "Output file",
+                    "required": true
+                }
+            },
+            "args": []
+        },
+        "import": {
+            "id": "import",
+            "description": "Extracts the resources of a Postman export file into a directory",
+            "pluginName": "postman-extractor",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "postmanFile": {
+                    "name": "postmanFile",
+                    "type": "option",
+                    "char": "f",
+                    "description": "Postman export file *.postman_export.json",
+                    "required": true
+                },
+                "outputDir": {
+                    "name": "outputDir",
+                    "type": "option",
+                    "char": "o",
+                    "description": "Output directory",
+                    "required": true,
+                    "default": "src"
+                }
+            },
+            "args": []
+        }
+    }
+}

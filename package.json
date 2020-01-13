@@ -1,0 +1,72 @@
+{
+    "name": "postman-extractor",
+    "description": "Command line utility that extracts/compacts resources from Postman export files for easier versioning",
+    "version": "1.0.0",
+    "author": "Philippe Ozil @pozil",
+    "bin": {
+        "pmx": "./bin/run"
+    },
+    "scripts": {
+        "postpack": "rm -f oclif.manifest.json",
+        "posttest": "eslint .",
+        "prepack": "oclif-dev manifest && oclif-dev readme",
+        "version": "oclif-dev readme && git add README.md",
+        "prettier": "prettier --write '**/*.{js,json,md}'",
+        "prettier:verify": "prettier --list-different '**/*.{js,json,md}'"
+    },
+    "dependencies": {
+        "@oclif/command": "^1.5.19",
+        "@oclif/config": "^1.13.3",
+        "@oclif/plugin-help": "^2.2.3",
+        "rimraf": "^3.0.0"
+    },
+    "devDependencies": {
+        "@oclif/dev-cli": "^1.22.2",
+        "eslint": "^5.16.0",
+        "eslint-config-oclif": "^3.1.0",
+        "globby": "^10.0.2",
+        "husky": "^4.0.7",
+        "lint-staged": "^9.5.0",
+        "prettier": "^1.19.1"
+    },
+    "engines": {
+        "node": ">=8.0.0"
+    },
+    "files": [
+        "/bin",
+        "/npm-shrinkwrap.json",
+        "/oclif.manifest.json",
+        "/src"
+    ],
+    "repository": "pozil/postman-extractor",
+    "homepage": "https://github.com/pozil/postman-extractor",
+    "bugs": "https://github.com/pozil/postman-extractor/issues",
+    "keywords": [
+        "oclif"
+    ],
+    "license": "CC0-1.0",
+    "main": "src/index.js",
+    "oclif": {
+        "commands": "./src/commands",
+        "bin": "pmx",
+        "plugins": [
+            "@oclif/plugin-help"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.{js,json,md}": [
+            "prettier --write"
+        ],
+        "**/lwc/**": [
+            "eslint"
+        ],
+        "*": [
+            "git add"
+        ]
+    }
+}

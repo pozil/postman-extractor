@@ -1,0 +1,15 @@
+{
+    "extends": "oclif",
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "semi": 0,
+                "indent": ["error", 4],
+                "comma-dangle": "off",
+                "no-console": "off",
+                "object-curly-spacing": "off"
+            }
+        }
+    ]
+}
