@@ -1,7 +1,7 @@
 {
     "name": "postman-extractor",
     "description": "Command line utility that extracts/compacts resources from Postman export files for easier versioning",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "Philippe Ozil @pozil",
     "bin": {
         "pmx": "./bin/run"

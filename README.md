@@ -44,37 +44,33 @@ Then, run `pmx export -o myUpdatedResources.postman_export.json` to aggregate th
 ⚠️ **Warning:** Make sure to remove all credentials from your Postmal resources when versioning them.
 
 <!-- toc -->
-
--   [Postman Extractor (pmx)](#postman-extractor-pmx)
--   [Usage](#usage)
--   [Commands](#commands)
-    <!-- tocstop -->
+* [Postman Extractor (pmx)](#postman-extractor-pmx)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g postman-extractor
 $ pmx COMMAND
 running command...
 $ pmx (-v|--version|version)
-postman-extractor/1.0.1 darwin-x64 node-v10.16.3
+postman-extractor/1.0.2 darwin-x64 node-v10.16.3
 $ pmx --help [COMMAND]
 USAGE
   $ pmx COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
--   [`pmx export`](#pmx-export)
--   [`pmx help [COMMAND]`](#pmx-help-command)
--   [`pmx import`](#pmx-import)
+* [`pmx export`](#pmx-export)
+* [`pmx help [COMMAND]`](#pmx-help-command)
+* [`pmx import`](#pmx-import)
 
 ## `pmx export`
 
@@ -89,7 +85,7 @@ OPTIONS
   -o, --outputFile=outputFile            (required) Output file
 ```
 
-_See code: [src/commands/export.js](https://github.com/pozil/postman-extractor/blob/v1.0.1/src/commands/export.js)_
+_See code: [src/commands/export.js](https://github.com/pozil/postman-extractor/blob/v1.0.2/src/commands/export.js)_
 
 ## `pmx help [COMMAND]`
 
@@ -121,6 +117,5 @@ OPTIONS
   -o, --outputDir=outputDir      (required) [default: src] Output directory
 ```
 
-_See code: [src/commands/import.js](https://github.com/pozil/postman-extractor/blob/v1.0.1/src/commands/import.js)_
-
+_See code: [src/commands/import.js](https://github.com/pozil/postman-extractor/blob/v1.0.2/src/commands/import.js)_
 <!-- commandsstop -->
