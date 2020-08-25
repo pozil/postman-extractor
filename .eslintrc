@@ -1,5 +1,8 @@
 {
-    "extends": "oclif",
+    "extends": [
+        "oclif",
+        "prettier"
+    ],
     "overrides": [
         {
             "files": ["*.js"],
