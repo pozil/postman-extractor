@@ -41,7 +41,7 @@ src
 
 Then, run `pmx export -o myUpdatedResources.postman_export.json` to aggregate the source files and folders into a single Postman export JSON file.
 
-⚠️ **Warning:** Make sure to remove all credentials from your Postmal resources when versioning them.
+⚠️ **Warning:** Make sure to remove all credentials from your Postman resources when versioning them.
 
 <!-- toc -->
 
