@@ -1,7 +1,7 @@
 {
     "name": "postman-extractor",
     "description": "Command line utility that extracts/compacts resources from Postman export files for easier versioning",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "author": "Philippe Ozil @pozil",
     "bin": {
         "pmx": "./bin/run"
@@ -12,7 +12,8 @@
         "prepack": "oclif-dev manifest && oclif-dev readme",
         "version": "oclif-dev readme && git add README.md",
         "prettier": "prettier --write '**/*.{js,json,md}'",
-        "prettier:verify": "prettier --list-different '**/*.{js,json,md}'"
+        "prettier:verify": "prettier --list-different '**/*.{js,json,md}'",
+        "lint": "eslint src/**"
     },
     "dependencies": {
         "@oclif/command": "^1.8.0",
@@ -66,9 +67,6 @@
         ],
         "*.js": [
             "eslint"
-        ],
-        "*": [
-            "git add"
         ]
     }
 }

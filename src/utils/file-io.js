@@ -15,7 +15,7 @@ module.exports.CONSTANTS = {
  * @param {Object} data data that will be saved as JSON
  */
 module.exports.writeJson = (path, data) => {
-    fs.writeFileSync(path, JSON.stringify(data, null, 2), error => {
+    fs.writeFileSync(path, JSON.stringify(data, null, 2), (error) => {
         if (error) {
             console.error(`Failed to write JSON file ${path}`);
             throw error;
@@ -28,7 +28,7 @@ module.exports.writeJson = (path, data) => {
  * @param {String} path read file path
  * @returns {Object} data parsed from file
  */
-module.exports.readJson = path => {
+module.exports.readJson = (path) => {
     try {
         const jsonString = fs.readFileSync(path);
         return JSON.parse(jsonString);
@@ -43,6 +43,15 @@ module.exports.readJson = path => {
  * @param {String} name original file name
  * @returns {String} escaped file name
  */
-module.exports.escapeFileName = name => {
+module.exports.escapeFileName = (name) => {
     return name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+};
+
+/**
+ * Gets all non-system files from a directory
+ * @param {String} path directory path
+ * @returns {String[]} file list
+ */
+module.exports.getNonSystemFilesFromDir = (path) => {
+    return fs.readdirSync(path).filter((filename) => filename !== '.DS_Store');
 };

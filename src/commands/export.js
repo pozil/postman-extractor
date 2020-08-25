@@ -6,7 +6,8 @@ const {
     CONSTANTS,
     readJson,
     writeJson,
-    escapeFileName
+    escapeFileName,
+    getNonSystemFilesFromDir
 } = require('../utils/file-io.js');
 const {
     DEFAULT_FILE,
@@ -68,7 +69,7 @@ ExportCommand.flags = {
 function parseFromDirectory(postmanData, key, sourceDirectory) {
     const dirPath = `${sourceDirectory}/${escapeFileName(key)}`;
     postmanData[key] = [];
-    fs.readdirSync(dirPath).forEach(fileName => {
+    getNonSystemFilesFromDir(dirPath).forEach((fileName) => {
         postmanData[key].push(readJson(`${dirPath}/${fileName}`));
     });
 }
@@ -76,19 +77,21 @@ function parseFromDirectory(postmanData, key, sourceDirectory) {
 function parseCollections(postmanData, sourceDirectory) {
     const collectionsPath = `${sourceDirectory}/${escapeFileName(COLLECTIONS)}`;
     const collections = [];
-    fs.readdirSync(collectionsPath).forEach(collectionFolderName => {
-        const collection = parseCollection(
-            `${collectionsPath}/${collectionFolderName}`
-        );
-        collections.push(collection);
-    });
+    getNonSystemFilesFromDir(collectionsPath).forEach(
+        (collectionFolderName) => {
+            const collection = parseCollection(
+                `${collectionsPath}/${collectionFolderName}`
+            );
+            collections.push(collection);
+        }
+    );
     postmanData[COLLECTIONS] = collections;
 }
 
 function parseCollection(collectionPath) {
     const collection = readJson(`${collectionPath}/${DEFAULT_FILE}`);
     let requests = [];
-    fs.readdirSync(collectionPath).forEach(folderName => {
+    getNonSystemFilesFromDir(collectionPath).forEach((folderName) => {
         if (folderName !== DEFAULT_FILE) {
             const folderRequests = parseCollectionFolder(
                 `${collectionPath}/${folderName}`
@@ -101,7 +104,7 @@ function parseCollection(collectionPath) {
 }
 
 function parseCollectionFolder(folderPath) {
-    return fs.readdirSync(folderPath).map(requestFileName => {
+    return getNonSystemFilesFromDir(folderPath).map((requestFileName) => {
         return readJson(`${folderPath}/${requestFileName}`);
     });
 }

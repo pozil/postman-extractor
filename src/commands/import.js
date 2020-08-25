@@ -71,7 +71,7 @@ ImportCommand.flags = {
 function extractToDirectory(parent, key, path) {
     const folderName = escapeFileName(key);
     fs.mkdirSync(`${path}/${folderName}`);
-    parent[key].forEach(item => {
+    parent[key].forEach((item) => {
         const fileName = escapeFileName(item.name);
         writeJson(`${path}/${folderName}/${fileName}.json`, item);
     });
@@ -79,7 +79,7 @@ function extractToDirectory(parent, key, path) {
 }
 
 function extractCollections(parent, outputDir) {
-    parent[COLLECTIONS].forEach(collection => {
+    parent[COLLECTIONS].forEach((collection) => {
         const collectionName = escapeFileName(collection.name);
         const collectionPath = `${outputDir}/${COLLECTIONS}/${collectionName}`;
         fs.mkdirSync(collectionPath, { recursive: true });
@@ -95,7 +95,7 @@ function extractCollections(parent, outputDir) {
 
 function extractCollectionFolders(collectionPath, collection) {
     const folderMap = {};
-    collection[FOLDERS].forEach(folder => {
+    collection[FOLDERS].forEach((folder) => {
         const folderName = escapeFileName(folder.name);
         folderMap[folder.id] = folderName;
         const folderPath = `${collectionPath}/${folderName}`;
@@ -105,7 +105,7 @@ function extractCollectionFolders(collectionPath, collection) {
 }
 
 function extractRequests(collectionPath, collection, folderMap) {
-    collection[REQUESTS].forEach(request => {
+    collection[REQUESTS].forEach((request) => {
         let folderName = folderMap[request.folder];
         if (folderName) {
             folderName = escapeFileName(folderName);
